@@ -39,4 +39,13 @@ public class MemberResponseDTO {
         private Long memberId;
         private String token;
     }
+
+    @Builder
+    @NoArgsConstructor
+    @AllArgsConstructor
+    @Getter
+    public static class MemberAutoLoginResponseDTO {
+        private Long memberId;
+        private Boolean isSuccess;
+    }
 }

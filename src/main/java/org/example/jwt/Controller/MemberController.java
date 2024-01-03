@@ -50,6 +50,16 @@ public class MemberController {
         return MemberConverter.toMemberLoginResponseDTO(member,jwt);
     }
 
+    // 자동 로그인 Get 요청이다.
+    @GetMapping("/auto-login")
+    public MemberResponseDTO.MemberAutoLoginResponseDTO autoLogin() {
+        // Header에 있는 토큰을 통해 memberId를 가져온다.
+        Long memberId = jwtService.getMemberId();
+
+        // memberId로 Member를 찾아 MemberLoginResponseDTO로 변환하여 반환한다.
+        return MemberConverter.toMemberAutoLoginResponseDTO(memberQueryService.findMemberById(memberId));
+    }
+
     // 유저 정보를 조회하는 Get 요청이다.
     @GetMapping("{memberId}")
     public MemberResponseDTO.MemberPreviewDTO findMemberById(

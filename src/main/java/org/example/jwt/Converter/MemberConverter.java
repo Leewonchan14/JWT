@@ -36,4 +36,11 @@ public class MemberConverter {
                 .token(token)
                 .build();
     }
+
+    public static MemberResponseDTO.MemberAutoLoginResponseDTO toMemberAutoLoginResponseDTO(Member member) {
+        return MemberResponseDTO.MemberAutoLoginResponseDTO.builder()
+                .memberId(member.getId())
+                .isSuccess(true)
+                .build();
+    }
 }
