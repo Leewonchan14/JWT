@@ -25,12 +25,10 @@ public class MemberController {
             @RequestBody MemberRequestDTO.MemberCreateRequestDTO request
     ) {
         // 회원가입을 하면 Member가 생성된다.
-        Member member = memberCommandService.createMember(request);
-        // 회원가입을 하면 JWT가 생성된다.
-        String jwt = jwtService.createJWT(member.getId());
+        Member newMember = memberCommandService.createMember(request);
 
         // 생성한 Member와 JWT를 반환한다.
-        return MemberConverter.toMemberCreateResponseDTO(member,jwt);
+        return MemberConverter.toMemberCreateResponseDTO(newMember);
     }
 
     // 로그인 Post 요청이다.

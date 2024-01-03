@@ -28,7 +28,6 @@ public class MemberResponseDTO {
     public static class MemberCreateResponseDTO {
         private Long memberId;
         private LocalDateTime createdAt;
-        private String token;
     }
 
     @Builder

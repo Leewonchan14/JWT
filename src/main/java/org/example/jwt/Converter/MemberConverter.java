@@ -22,11 +22,10 @@ public class MemberConverter {
                 .build();
     }
 
-    public static MemberResponseDTO.MemberCreateResponseDTO toMemberCreateResponseDTO(Member member, String token) {
+    public static MemberResponseDTO.MemberCreateResponseDTO toMemberCreateResponseDTO(Member member) {
         return MemberResponseDTO.MemberCreateResponseDTO.builder()
                 .memberId(member.getId())
                 .createdAt(member.getCreatedAt())
-                .token(token)
                 .build();
     }
 
